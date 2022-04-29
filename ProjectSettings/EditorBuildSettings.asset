@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Users/murase/scenes/TitleScene.unity
+    guid: 06504e7ff0521e54b89a3cd96bd63d68
+  - enabled: 1
+    path: Assets/Users/murase/scenes/MenuScene.unity
+    guid: 5343e0ec9a5eec64dbad29cf40624b83
+  - enabled: 1
+    path: Assets/Users/murase/scenes/RuleScene.unity
+    guid: 21358a816b758164cbd68f5ed5b951c5
+  - enabled: 1
+    path: Assets/Users/murase/scenes/GameScene1.unity
+    guid: 34f74f5ecbf74b54d9940244e04ec16e
+  - enabled: 1
+    path: Assets/Users/murase/scenes/GameScene2.unity
+    guid: 1c32f23161086f74d8e40abda46ec96b
   m_configObjects: {}
