@@ -1,18 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadGameScene2 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // 「ステージ2」に移動する関数
+    public void OnClickStage2Button()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // ステージ2に移動
+        SceneManager.LoadScene("GameScene2");
     }
 }
