@@ -7,62 +7,127 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField, Header("パズルオブジェクト")]
     private GameObject puzzleObj;
 
-    [SerializeField, Header("パズル数"), Range(2, 100)]
-    private int puzzleCount = 2;
+    [SerializeField, Header("パズル数"), Range(2, 6)]
+    public int puzzleCount = 2;
 
     [SerializeField,Header("パズルの横間隔")]
-    private float puzzleHorizontalDistance = 2.5f;
+    public float puzzleHorizontalDistance = 2.5f;
 
     [SerializeField, Header("パズルの縦間隔")]
     private float puzzleVerticalDistance = 6f;
 
-    ///パズルのパターン数
-    public static int MaxPuzzlePattern = 6;
+    [SerializeField, Header("色別パズルスプライト")]
+    private Sprite[] puzzleColorTemp;
+
+    /// <summary>
+    /// 0～6の七色のパズルスプライト
+    /// </summary>
+    public static Sprite[] puzzleColor;
+
+    private void Awake()
+    {
+        puzzleColor = puzzleColorTemp;
+
+    }
 
     private void Start()
     {
-        GenerateBothTopDownPuzzles();
-    }
-
-    /// <summary>
-    /// パズルパターンの乱数
-    /// </summary>
-    private int PuzzlePatternNum()
-    {
-        int num = Random.Range(0, MaxPuzzlePattern);
-        return num;
+        GenerateTopDownPuzzles();
     }
 
     /// <summary>
     /// 両端のパズルオブジェクト生成関数
     /// countを2で割って割り切れたら、その間隔分puzzleHorizontalDistanceの倍数をとる
+    /// この関数ではパズルを生成するのみで、場所の移動や、表示などはPuzzleTransformerで行う。
     /// </summary>
     /// <param name="count">パズル列番号</param>
-    private void GenerateBothTopDownPuzzles()
+    private void GenerateTopDownPuzzles()
     {
-        for (int i = 1; i < puzzleCount; i++)
+        for (int i = 1; i < puzzleCount + 1; i++)
         {
-            if (i == 1)
+            if (i % 2 == 0)
             {
-                Instantiate(puzzleObj, new Vector3(-puzzleHorizontalDistance, puzzleVerticalDistance, 0), Quaternion.identity);
-                Instantiate(puzzleObj, new Vector3(-puzzleHorizontalDistance, -puzzleVerticalDistance, 0), Quaternion.identity);
+                //2の倍数列生成
+                float horizontalPos = i * puzzleHorizontalDistance - puzzleHorizontalDistance;
 
-                Instantiate(puzzleObj, new Vector3(puzzleHorizontalDistance, puzzleVerticalDistance, 0), Quaternion.identity);
-                Instantiate(puzzleObj, new Vector3(puzzleHorizontalDistance, -puzzleVerticalDistance, 0), Quaternion.identity);
+                //ランダムカラー番号
+                int rNum = Random.Range(0, puzzleColor.Length);
+
+                //上
+                GameObject top = Instantiate(puzzleObj, new Vector3(horizontalPos, puzzleVerticalDistance, 0), Quaternion.identity);
+                
+                PuzzleTransformer puzA = top.GetComponent<PuzzleTransformer>();
+                puzA.colorNum = rNum;
+                puzA.puzzleEnableNumber = new bool[9];
+
+
+                ////生成したオブジェクトに可視化するbool配列を代入
+                int rnd = Random.Range(0, 8);
+                for (int n = 0; n <= rnd; n++)
+                {
+                    int rnd2 = Random.Range(0, 8);
+                    Debug.Log(puzA.puzzleEnableNumber.Length);
+                }
+
+                //下
+                GameObject bottom = Instantiate(puzzleObj, new Vector3(horizontalPos, -puzzleVerticalDistance, 0), Quaternion.identity);
+                
+                PuzzleTransformer puzB = bottom.GetComponent<PuzzleTransformer>();
+                puzB.colorNum = rNum;
+                puzB.puzzleEnableNumber = new bool[9];
+
+                ////生成したオブジェクトに可視化するbool配列を代入
+                int rndz = Random.Range(0, 8);
+                for (int n = 0; n <= rnd; n++)
+                {
+                    int rnd2 = Random.Range(0, 8);
+                    Debug.Log(puzB.puzzleEnableNumber.Length);
+                }
+
 
             }
-            else if (i == 3)
+            else if (i % 2 == 1)
             {
-                Instantiate(puzzleObj, new Vector3(0, 0, 0), Quaternion.identity);
-            }
+                //3の倍数列生成
 
-            if (i % 2 == 0 && i > 3)
-            {
-                float HorizontalPos = (i / 2) * puzzleHorizontalDistance;
+                int multipleVal = i / 2;
 
-                Instantiate(puzzleObj, new Vector3(-HorizontalPos, puzzleVerticalDistance, 0), Quaternion.identity);
+                float horizontalPos = multipleVal * 2 * puzzleHorizontalDistance + puzzleHorizontalDistance;
 
-                Instantiate(puzzleObj, new Vector3(puzzleVerticalDistance, HorizontalPos, 0), Quaternion.identity);
+                //ランダムカラー番号
+                int rNum = Random.Range(0, puzzleColor.Length);
+
+                //上
+                GameObject top = Instantiate(puzzleObj, new Vector3(-horizontalPos, puzzleVerticalDistance, 0), Quaternion.identity);
+
+                PuzzleTransformer puzA = top.GetComponent<PuzzleTransformer>();
+                puzA.colorNum = rNum;
+                puzA.puzzleEnableNumber = new bool[9];
+
+
+                ////生成したオブジェクトに可視化するbool配列を代入
+                int rnd = Random.Range(0, 8);
+                for (int n = 0; n <= rnd; n++)
+                {
+                    int rnd2 = Random.Range(0, 8);
+                    Debug.Log(puzA.puzzleEnableNumber.Length);
+                }
+
+
+                //下
+                GameObject bottom = Instantiate(puzzleObj, new Vector3(-horizontalPos, -puzzleVerticalDistance, 0), Quaternion.identity);
+                
+                PuzzleTransformer puzB = bottom.GetComponent<PuzzleTransformer>();
+                puzB.colorNum = rNum;
+                puzB.puzzleEnableNumber = new bool[9];
+
+                ////生成したオブジェクトに可視化するbool配列を代入
+                int rndz = Random.Range(0, 8);
+                for (int n = 0; n <= rnd; n++)
+                {
+                    int rnd2 = Random.Range(0, 8);
+                    Debug.Log(puzB.puzzleEnableNumber.Length);
+                }
 
             }
         }

@@ -220,7 +220,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &216139005
+--- !u!1 &232152903
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,37 +228,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 216139007}
-  - component: {fileID: 216139006}
+  - component: {fileID: 232152904}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: //////////Manager//////////
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &216139006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216139005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35b083259e4a414093dc4eb0d7ee9c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 367461123}
---- !u!4 &216139007
+--- !u!4 &232152904
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216139005}
+  m_GameObject: {fileID: 232152903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.5471323, y: 8.238418, z: -16.107323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -301,7 +287,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5235849, g: 0.5259618, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.65882355, b: 0.6333749, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -380,8 +366,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 9138063002304479576, guid: cb27e23beba922c4492975ae3b7b664d, type: 3}
   puzzleCount: 2
-  puzzleHorizontalDistance: 2.5
+  puzzleHorizontalDistance: 2
   puzzleVerticalDistance: 6
+  puzzleColorTemp:
+  - {fileID: 21300000, guid: 3217d1c9c6fcb3e468442524b950fcbe, type: 3}
+  - {fileID: 21300000, guid: e48f7758e1165a443bf4298c118f858a, type: 3}
+  - {fileID: 21300000, guid: bd41ad361dee5bf4f871aacb35075ced, type: 3}
+  - {fileID: 21300000, guid: b4a3d3469872e6b4ebc1909712e08e73, type: 3}
+  - {fileID: 21300000, guid: 1f0433d9ea2ad934aa3b85ab65f9c2ae, type: 3}
+  - {fileID: 21300000, guid: bc934d60577a2ac409150734089ced28, type: 3}
+  - {fileID: 21300000, guid: 66aa3679e49936242b70a20339a438b0, type: 3}
 --- !u!4 &475293371
 Transform:
   m_ObjectHideFlags: 0
@@ -396,6 +390,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1204401584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204401585}
+  m_Layer: 0
+  m_Name: /////////////////////////////////
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204401585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204401584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5471323, y: 8.238418, z: -16.107323}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1806412907
 GameObject:
