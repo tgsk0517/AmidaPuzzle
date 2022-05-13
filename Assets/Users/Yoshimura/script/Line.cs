@@ -6,19 +6,18 @@ public class Line : MonoBehaviour
 {
     private LineRenderer lineRenderer;
 
-    private int positionCount;
-
     private Camera mainCamera;
 
-
+  
     // Start is called before the first frame update
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer > ();
+         lineRenderer = GetComponent<LineRenderer > ();
 
-        lineRenderer.useWorldSpace = false;
-        positionCount = 0;
+          lineRenderer.useWorldSpace = false;
+
         mainCamera = Camera.main;
+         
 
     }
 
@@ -41,26 +40,44 @@ public class Line : MonoBehaviour
         // さらにそれをローカル座標に直す。
         pos = transform.InverseTransformPoint(pos);
 
+       
+        //クイックで座標指定
         if (Input.GetMouseButtonDown(0))
         {
+           
+            lineRenderer.SetPosition(0,pos);
+
+
+        }
+
+      if(Input.GetMouseButton(0))
+        {
+            
+         
+            lineRenderer.SetPosition(1, pos);
+       }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+
             lineRenderer.SetPosition(0, pos);
 
         }
 
-        if(Input.GetMouseButton(0))
+        //クリックでlinrendererをコピー
+        if (Input.GetMouseButtonDown(0))
         {
             
-            lineRenderer.SetPosition(1, pos);
+
+            Instantiate(lineRenderer, new Vector3(-1f, 0f, 0), Quaternion.identity);
+
+
+
         }
 
 
 
-
-        
-        //リセットする
-        if (!(Input.GetMouseButton(0)))
-        {
-            positionCount = 0;
-        }
+     
     }
+
 }
