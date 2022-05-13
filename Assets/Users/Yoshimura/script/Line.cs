@@ -8,22 +8,28 @@ public class Line : MonoBehaviour
 
     private Camera mainCamera;
 
-  
+    private List<LineRenderer> lineRendererList;
+
+    bool test = true;
+
     // Start is called before the first frame update
     void Start()
     {
-         lineRenderer = GetComponent<LineRenderer > ();
+        lineRenderer = GetComponent<LineRenderer>();
+        // ラインの座標指定を、このラインオブジェクトのローカル座標系を基準にするよう設定を変更　
 
-          lineRenderer.useWorldSpace = false;
+         //カメラから見やすい位置に線が引かれる
+        lineRenderer.useWorldSpace = false;
+
 
         mainCamera = Camera.main;
-         
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+
 
 
         //このラインオブジェクトを、位置はカメラ１０ｍ、回転はカメラと同じようになるようキープさせる
@@ -40,44 +46,37 @@ public class Line : MonoBehaviour
         // さらにそれをローカル座標に直す。
         pos = transform.InverseTransformPoint(pos);
 
-       
-        //クイックで座標指定
-        if (Input.GetMouseButtonDown(0))
-        {
-           
-            lineRenderer.SetPosition(0,pos);
 
+
+        if (test == true)
+        {
+            //クリックで座標指定
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                lineRenderer.SetPosition(0, pos);
+            }
+
+            //終点の指定
+            if (Input.GetMouseButton(0))
+            {
+
+
+                lineRenderer.SetPosition(1, pos);
+            }
+
+
+
+            //クリックでlinrendererをコピー
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                Instantiate(lineRenderer, new Vector3(-1f, 0f, 0), Quaternion.identity);
+
+                test = false;
+            }
 
         }
-
-      if(Input.GetMouseButton(0))
-        {
-            
-         
-            lineRenderer.SetPosition(1, pos);
-       }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-
-            lineRenderer.SetPosition(0, pos);
-
-        }
-
-        //クリックでlinrendererをコピー
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-
-            Instantiate(lineRenderer, new Vector3(-1f, 0f, 0), Quaternion.identity);
-
-
-
-        }
-
-
-
-     
-    }
+     }
 
 }
