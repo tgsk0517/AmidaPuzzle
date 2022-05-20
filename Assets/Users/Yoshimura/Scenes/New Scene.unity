@@ -639,6 +639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: endMarker
       objectReference: {fileID: 0}
+    - target: {fileID: 6024020858766811290, guid: bcb55ddbd666d6e4f88fc655c5dcb041, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb55ddbd666d6e4f88fc655c5dcb041, type: 3}
 --- !u!1001 &6917061353500085180
@@ -712,6 +716,10 @@ PrefabInstance:
     - target: {fileID: 105623741029010113, guid: 11d572f449ed2444197362ec4212cd0a, type: 3}
       propertyPath: m_Name
       value: startMarker
+      objectReference: {fileID: 0}
+    - target: {fileID: 105623741029010113, guid: 11d572f449ed2444197362ec4212cd0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 596244342917957511, guid: 11d572f449ed2444197362ec4212cd0a, type: 3}
       propertyPath: m_RootOrder
